@@ -15,5 +15,32 @@ class GameLayer extends Layer {
         this.fondo.dibujar();
         this.jugador.dibujar();
     }
+    procesarControles( ){
+        // disparar
+        if ( controles.disparo ){
+
+        }
+        // Eje X
+        if ( controles.moverX > 0 ){
+            this.jugador.moverX(1);
+        }else if ( controles.moverX < 0){
+            this.jugador.moverX(-1);
+        } else {
+            this.jugador.moverX(0);
+        }
+
+        // Eje Y
+        if ( controles.moverY > 0 ){
+            this.jugador.moverY(-1);
+
+        } else if ( controles.moverY < 0 ){
+            this.jugador.moverY(1);
+        } else {
+            this.jugador.moverY(0);
+        }
+
+    }
+
+
 
 }
