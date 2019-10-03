@@ -11,8 +11,6 @@ function iniciarJuego() {
     setInterval(loop, 1000 / 30);
 }
 
-iniciarJuego();
-
 function loop(){
     console.log("loop - ")
     gameLayer.actualizar();
