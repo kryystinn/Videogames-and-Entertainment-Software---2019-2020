@@ -9,6 +9,8 @@ class GameLayer extends Layer {
     }
 
     actualizar (){
+        this.jugador.actualizar();
+
     }
 
     dibujar (){

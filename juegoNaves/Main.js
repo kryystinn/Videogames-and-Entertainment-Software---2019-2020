@@ -20,6 +20,7 @@ function iniciarJuego() {
 function loop(){
     console.log("loop - ")
     gameLayer.actualizar();
+    gameLayer.procesarControles()
     gameLayer.dibujar();
 }
 
