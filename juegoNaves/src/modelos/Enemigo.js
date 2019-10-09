@@ -5,9 +5,7 @@ class Enemigo extends Modelo {
         this.vx = 1;
     }
     actualizar (){
-        if ( this.x + this.ancho/2 >= 480 || this.x - this.ancho/2 <= 0){
-            this.vx = this.vx * -1;
-        }
+        this.vx = -1;
         this.x = this.x + this.vx;
     }
 }
