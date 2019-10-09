@@ -25,7 +25,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../juegoPlataformas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
@@ -57,7 +57,8 @@
       <updated>1570114882516</updated>
       <workItem from="1570114883691" duration="82000" />
       <workItem from="1570114966325" duration="6008000" />
-      <workItem from="1570587354275" duration="8739000" />
+      <workItem from="1570587354275" duration="8484000" />
+      <workItem from="1570597719563" duration="251000" />
     </task>
     <servers />
   </component>
