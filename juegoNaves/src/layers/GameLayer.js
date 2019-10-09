@@ -26,10 +26,23 @@ class GameLayer extends Layer {
             this.disparosJugador[i].actualizar();
         }
 
-        // colisiones
+        // colisiones jugador y enemigo
         for (var i = 0; i < this.enemigos.length; i++) {
             if (this.jugador.colisiona(this.enemigos[i])) {
                 this.iniciar();
+            }
+        }
+
+        // colisiones disparoJugador y enemigo
+        for (var i=0; i < this.disparosJugador.length; i++){
+            for (var j=0; j < this.enemigos.length; j++){
+                if (this.disparosJugador[i] != null && this.enemigos[j] != null &&
+                    this.disparosJugador[i].colisiona(this.enemigos[j])) {
+                    this.disparosJugador.splice(i, 1);
+                    i = i-1;
+                    this.enemigos.splice(j, 1);
+                    j = j-1;
+                }
             }
         }
     }
