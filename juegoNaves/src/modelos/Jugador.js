@@ -16,6 +16,4 @@ class Jugador extends Modelo {
     moverY (direccion){
         this.vy = direccion * 3;
     }
-
-
 }

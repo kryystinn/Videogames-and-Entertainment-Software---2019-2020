@@ -6,16 +6,33 @@ class GameLayer extends Layer {
     iniciar() {
         this.jugador = new Jugador(50, 50);
         this.fondo = new Fondo(imagenes.fondo,480*0.5,320*0.5);
+
+        this.enemigos = [];
+        this.enemigos.push(new Enemigo(300,50));
+        this.enemigos.push(new Enemigo(350,200));
     }
 
     actualizar (){
         this.jugador.actualizar();
+        for (var i=0; i < this.enemigos.length; i++){
+            this.enemigos[i].actualizar();
+        }
 
+        // colisiones
+        for (var i=0; i < this.enemigos.length; i++){
+            if ( this.jugador.colisiona(this.enemigos[i])){
+                this.iniciar();
+            }
+        }
     }
 
     dibujar (){
         this.fondo.dibujar();
         this.jugador.dibujar();
+        for (var i=0; i < this.enemigos.length; i++){
+            this.enemigos[i].dibujar();
+        }
+
     }
     procesarControles( ){
         // disparar
