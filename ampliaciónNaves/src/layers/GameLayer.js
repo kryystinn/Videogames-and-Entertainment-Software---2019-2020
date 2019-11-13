@@ -22,6 +22,12 @@ class GameLayer extends Layer {
     }
 
     actualizar (){
+        // Fondo
+        this.fondo.vx = -1;
+        this.fondo.actualizar();
+
+        // Jugador
+
         console.log("disparosJugador: "+this.disparosJugador.length);
         // Eliminar disparos fuera de pantalla
         for (var i=0; i < this.disparosJugador.length; i++){
@@ -48,22 +54,31 @@ class GameLayer extends Layer {
             this.iteracionesCrearEnemigos = 110;
         }
 
-
-
-
+        // Actualizar jugador
         this.jugador.actualizar();
+
+        // Actualizar enemigos
         for (var i=0; i < this.enemigos.length; i++){
             this.enemigos[i].actualizar();
         }
+
+        // Actualizar disparos jugador
         for (var i=0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].actualizar();
         }
 
-        // colisiones
+        // Colisión enemigo - jugador
         for (var i=0; i < this.enemigos.length; i++){
-            if ( this.jugador.colisiona(this.enemigos[i])){
+            // Si la vida es 1
+            if ( this.jugador.colisiona(this.enemigos[i]) && this.jugador.vida ==  1){
                 this.iniciar();
             }
+            // Si la vida es mayor que 1
+            else if (){
+                
+            }
+
+
         }
         // colisiones , disparoJugador - Enemigo
         for (var i=0; i < this.disparosJugador.length; i++){
