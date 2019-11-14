@@ -11,6 +11,10 @@ class Enemigo extends Modelo {
         this.vx = 1;
     }
 
+    disparar(){
+        return new DisparoEnemigo(this.x, this.y);
+    }
+
     actualizar (){
         this.animacion.actualizar();
 

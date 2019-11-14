@@ -7,21 +7,19 @@ class GameLayer extends Layer {
 
     iniciar() {
         this.jugador = new Jugador(50, 50, 3);
-        this.fondo = new Fondo(imagenes.fondo,480*0.5,320*0.5);
+        this.disparosJugador = [];
 
         this.enemigos = [];
         this.enemigos.push(new Enemigo(300,50));
         this.enemigos.push(new Enemigo(350,200));
+        this.disparosEnemigo = [];
 
-        this.fondoPuntos =
-            new Fondo(imagenes.icono_puntos, 480*0.85,320*0.05);
-
-
-        this.disparosJugador = []
-        this.puntos = new Texto(0,480*0.9,320*0.07 );
+        this.fondo = new Fondo(imagenes.fondo,480*0.5,320*0.5);
+        this.fondoPuntos = new Fondo(imagenes.icono_puntos, 480*0.85,320*0.05);
+        this.fondoVida = new Fondo(imagenes.corazon, 480*0.1, 320*0.07);
 
         this.vidaJugador =  new Texto(this.jugador.vida, 480*0.15, 320*0.07);
-        this.fondoVida = new Fondo(imagenes.corazon, 480*0.1, 320*0.07);
+        this.puntos = new Texto(0,480*0.9,320*0.07 );
 
     }
 
@@ -48,6 +46,22 @@ class GameLayer extends Layer {
         if (this.iteracionesCrearEnemigos == null){
             this.iteracionesCrearEnemigos = 0;
         }
+
+        // Disparos enemigos
+        if(this.iteracionesDisparoEnemigos == null)
+            this.iteracionesDisparoEnemigos = 150;
+        this.iteracionesDisparoEnemigos++;
+
+        if(this.iteracionesDisparoEnemigos > 200)
+            for(var i=0; i<this.enemigos.length; i++){
+                var disparo = this.enemigos[i].disparar();
+                if ( disparo != null )
+                    this.disparosEnemigo.push(disparo);
+                this.iteracionesDisparoEnemigos = 0;
+            }
+        for (var i = 0; i < this.disparosEnemigo.length; i++)
+            this.disparosEnemigo[i].actualizar();
+
         // iteracionesCrearEnemigos tiene que ser un número
         this.iteracionesCrearEnemigos --;
 
@@ -102,6 +116,17 @@ class GameLayer extends Layer {
             }
         }
 
+        // Colisión disparo enemigo - jugador
+        for (var i=0; i < this.disparosEnemigo.length; i++){
+            if (this.jugador.colisiona(this.disparosEnemigo[i]) && this.jugador.vida > 1) {
+                this.jugador.vida--;
+                this.vidaJugador.valor = this.jugador.vida;
+                this.disparosEnemigo.splice(i,1);
+            }
+            else if (this.jugador.colisiona(this.disparosEnemigo[i]) && this.jugador.vida == 1){
+                this.iniciar();
+            }
+        }
 
 
 
@@ -124,6 +149,9 @@ class GameLayer extends Layer {
 
         this.fondoVida.dibujar();
         this.vidaJugador.dibujar();
+
+        for(var i=0; i < this.disparosEnemigo.length; i++)
+            this.disparosEnemigo[i].dibujar();
     }
 
 
