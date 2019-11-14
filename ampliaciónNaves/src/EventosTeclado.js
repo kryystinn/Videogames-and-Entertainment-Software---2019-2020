@@ -24,6 +24,12 @@ function onKeyDown( event) {
             case 37:
                 controles.moverX = -1;
                 break;
+            case 49:
+                controles.nave = 1;
+                break;
+            case 50:
+                controles.nave = 2;
+                break;
         }
 
     }
@@ -57,6 +63,12 @@ function onKeyUp( event) {
             if ( controles.moverX == -1 ){
                 controles.moverX = 0;
             }
+            break;
+        case 49:
+            controles.nave = 0;
+            break;
+        case 50:
+            controles.nave = 0;
             break;
     }
 

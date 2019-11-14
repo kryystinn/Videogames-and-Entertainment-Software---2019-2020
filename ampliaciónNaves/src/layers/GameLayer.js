@@ -140,6 +140,8 @@ class GameLayer extends Layer {
 
 
         this.jugador.dibujar();
+
+
         for (var i=0; i < this.enemigos.length; i++){
             this.enemigos[i].dibujar();
         }
@@ -161,10 +163,16 @@ class GameLayer extends Layer {
             var nuevoDisparo = this.jugador.disparar();
             if ( nuevoDisparo != null ) {
                 this.disparosJugador.push(nuevoDisparo);
-
             }
+        }
 
+        // Cambiar naves
 
+        if (controles.nave == 1){
+            this.jugador = new Jugador(this.jugador.x, this.jugador.y, this.jugador.vida);
+        }
+        else if (controles.nave == 2){
+            this.jugador = new Jugador2(this.jugador.x, this.jugador.y, this.jugador.vida);
         }
 
         // Eje X
