@@ -16,7 +16,7 @@ class GameLayer extends Layer {
 
         this.fondo = new Fondo(imagenes.fondo,480*0.5,320*0.5);
         this.fondoPuntos = new Fondo(imagenes.icono_puntos, 480*0.85,320*0.05);
-        this.fondoVida = new Fondo(imagenes.corazon, 480*0.1, 320*0.07);
+        this.fondoVida = new Fondo(imagenes.corazon, 480*0.1, 320*0.05);
 
         this.vidaJugador =  new Texto(this.jugador.vida, 480*0.15, 320*0.07);
         this.puntos = new Texto(0,480*0.9,320*0.07 );
@@ -87,31 +87,28 @@ class GameLayer extends Layer {
 
         // Colisión enemigo - jugador
         for (var i=0; i < this.enemigos.length; i++){
-            // Si la vida es 1
-            if ( this.jugador.colisiona(this.enemigos[i]) && this.jugador.vida ==  1){
-                this.iniciar();
+            if ( this.jugador.colisiona(this.enemigos[i])){
+                if (this.jugador.vida ==  1)
+                    this.iniciar();
+                else {
+                    this.jugador.vida--;
+                    this.vidaJugador.valor = this.jugador.vida;
+                    this.enemigos.splice(i, 1);
+                }
             }
-            // Si la vida es mayor que 1
-            else if ( this.jugador.colisiona(this.enemigos[i]) && this.jugador.vida >  1){
-                this.jugador.vida--;
-                this.vidaJugador.valor = this.jugador.vida;
-                this.enemigos.splice(i, 1);
-            }
-
-
         }
         // colisiones , disparoJugador - Enemigo
-        for (var i=0; i < this.disparosJugador.length; i++){
-            for (var j=0; j < this.enemigos.length; j++){
-                if (this.disparosJugador[i] != null &&
-                    this.enemigos[j] != null &&
-                    this.disparosJugador[i].colisiona(this.enemigos[j])) {
-
-                    this.disparosJugador.splice(i, 1);
-                    i = i-1;
-                    this.enemigos.splice(j, 1);
-                    j = j-1;
-                    this.puntos.valor++;
+        for (var i = 0; i < this.disparosJugador.length; i++) {
+            for (var j = 0; j < this.enemigos.length; j++) {
+                if (this.disparosJugador[i] != null && this.enemigos[j] != null && this.disparosJugador[i].colisiona(this.enemigos[j])) {
+                    if (this.enemigos[j].vida == 1) {
+                        this.disparosJugador.splice(i, 1);
+                        this.enemigos.splice(j, 1);
+                        this.puntos.valor++;
+                    } else {
+                        this.disparosJugador.splice(i, 1);
+                        this.enemigos[j].vida--;
+                    }
                 }
             }
         }

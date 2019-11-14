@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f745157f-24dc-48cc-980e-882cb54a1032" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/jugador2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos/DisparoJugador2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos/Jugador2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/disparo_jugador2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/disparo_jugador2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventosTeclado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventosTeclado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Res.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Res.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layers/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/GameLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/Enemigo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Enemigo.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +63,7 @@
       <workItem from="1569266688189" duration="608000" />
       <workItem from="1569363010603" duration="1161000" />
       <workItem from="1573622557153" duration="4926000" />
-      <workItem from="1573692171050" duration="11561000" />
+      <workItem from="1573692171050" duration="13156000" />
     </task>
     <servers />
   </component>
