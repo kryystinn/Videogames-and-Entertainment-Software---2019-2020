@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f745157f-24dc-48cc-980e-882cb54a1032" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/corazon.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/corazon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Res.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Res.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layers/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/GameLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/Fondo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Fondo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/Jugador.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Jugador.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +61,8 @@
       <workItem from="1568900668260" duration="7518000" />
       <workItem from="1569266688189" duration="608000" />
       <workItem from="1569363010603" duration="1161000" />
-      <workItem from="1573622557153" duration="4328000" />
+      <workItem from="1573622557153" duration="4926000" />
+      <workItem from="1573692171050" duration="3992000" />
     </task>
     <servers />
   </component>

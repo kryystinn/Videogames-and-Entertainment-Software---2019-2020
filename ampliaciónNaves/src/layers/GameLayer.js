@@ -6,7 +6,7 @@ class GameLayer extends Layer {
     }
 
     iniciar() {
-        this.jugador = new Jugador(50, 50);
+        this.jugador = new Jugador(50, 50, 3);
         this.fondo = new Fondo(imagenes.fondo,480*0.5,320*0.5);
 
         this.enemigos = [];
@@ -19,6 +19,10 @@ class GameLayer extends Layer {
 
         this.disparosJugador = []
         this.puntos = new Texto(0,480*0.9,320*0.07 );
+
+        this.vidaJugador =  new Texto(this.jugador.vida, 480*0.15, 320*0.07);
+        this.fondoVida = new Fondo(imagenes.corazon, 480*0.1, 320*0.07);
+
     }
 
     actualizar (){
@@ -74,8 +78,10 @@ class GameLayer extends Layer {
                 this.iniciar();
             }
             // Si la vida es mayor que 1
-            else if (){
-                
+            else if ( this.jugador.colisiona(this.enemigos[i]) && this.jugador.vida >  1){
+                this.jugador.vida--;
+                this.vidaJugador.valor = this.jugador.vida;
+                this.enemigos.splice(i, 1);
             }
 
 
@@ -115,6 +121,9 @@ class GameLayer extends Layer {
 
         this.fondoPuntos.dibujar();
         this.puntos.dibujar();
+
+        this.fondoVida.dibujar();
+        this.vidaJugador.dibujar();
     }
 
 
