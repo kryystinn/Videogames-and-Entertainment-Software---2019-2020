@@ -100,6 +100,7 @@ class GameLayer extends Layer {
                 }
             }
         }
+
         // colisiones , disparoJugador - Enemigo
         for (var i = 0; i < this.disparosJugador.length; i++) {
             for (var j = 0; j < this.enemigos.length; j++) {
@@ -119,12 +120,13 @@ class GameLayer extends Layer {
         // Colisión disparo enemigo - jugador
         for (var i = 0; i < this.disparosEnemigo.length; i++) {
             if (this.jugador.colisiona(this.disparosEnemigo[i])) {
-                if (this.jugador.vida > 1) {
+                if (this.jugador.vida == 1)
+                    this.iniciar();
+                else {
                     this.jugador.vida--;
                     this.vidaJugador.valor = this.jugador.vida;
                     this.disparosEnemigo.splice(i, 1);
-                } else if (this.jugador.vida == 1)
-                    this.iniciar();
+                }
             }
         }
 

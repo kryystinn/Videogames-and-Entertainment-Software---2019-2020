@@ -7,7 +7,7 @@ class Jugador2 extends Modelo {
         this.vida = vida; // Vida del jugador
 
         // Disparo
-        this.cadenciaDisparo = 20;
+        this.cadenciaDisparo = 10;
         this.tiempoDisparo = 0;
 
     }
