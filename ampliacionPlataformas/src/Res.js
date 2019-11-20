@@ -36,6 +36,7 @@ var imagenes = {
     ninja_izqda : "res/ninja_movimiento_izquierda.png",
     ninja_morir : "res/ninja_morir.png",
     recolectable : "res/recolectable.png",
+    jelly : "res/jelly.png",
 
 };
 

@@ -95,9 +95,9 @@ class Jugador extends Modelo {
 
     }
 
-    saltar(){
+    saltar(vy){
         if ( !this.enElAire ) {
-            this.vy = -16;
+            this.vy = -vy;
             this.enElAire = true;
         }
 

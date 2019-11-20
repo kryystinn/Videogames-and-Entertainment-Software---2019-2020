@@ -26,8 +26,8 @@ function agregarPulsacion(id, tipoPulsacion, event ){
     y = event.pageY - canvas.offsetTop;
 
     var p = {};
-    p.x = x / this.escaladoMinimo;
-    p.y = y / this.escaladoMinimo;
+    p.x = x / escaladoMinimo;
+    p.y = y / escaladoMinimo;
     p.id = id; // Ratón SOLO hay 1
     p.tipo = tipoPulsacion;
     p.timeStamp = event.timeStamp;

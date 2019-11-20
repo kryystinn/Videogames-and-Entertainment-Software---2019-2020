@@ -15,6 +15,7 @@ class GameLayer extends Layer {
 
         this.scrollX = 0;
         this.bloques = [];
+        this.saltadores = [];
 
         this.fondo = new Fondo(imagenes.fondo_2,480*0.5,320*0.5);
 
@@ -177,6 +178,8 @@ class GameLayer extends Layer {
         for(var i=0; i<this.recolectables.length; i++)
             this.recolectables[i].dibujar(this.scrollX);
 
+        for(var i=0; i<this.saltadores.length; i++)
+            this.saltadores[i].dibujar(this.scrollX);
 
         // HUD
         this.fondoPuntos.dibujar();
@@ -216,15 +219,13 @@ class GameLayer extends Layer {
         }
 
         // Eje Y
-        if ( controles.moverY > 0 ){
-            this.jugador.saltar();
-
-        } else if ( controles.moverY < 0 ){
-
-
-        } else {
-
+        for (var i = 0; i < this.saltadores.length; i++) {
+            if (controles.moverY > 0 && !this.jugador.colisiona(this.saltadores[i]))
+                this.jugador.saltar(16);
+            else if (controles.moverY > 0 && this.jugador.colisiona(this.saltadores[i]))
+                this.jugador.saltar(60);
         }
+
 
     }
 
@@ -289,6 +290,12 @@ class GameLayer extends Layer {
                 this.recolectables.push(recolectable);
                 this.espacio.agregarCuerpoDinamico(recolectable);
                 break;
+            case "Y":
+                this.plataformaSalto = new Bloque(imagenes.jelly, x, y);
+                this.plataformaSalto.y = this.plataformaSalto.y - this.plataformaSalto.alto / 2;
+                this.saltadores.push(this.plataformaSalto);
+                this.espacio.agregarCuerpoEstatico(this.plataformaSalto);
+                break;
             case "#":
                 var bloque = new Bloque(imagenes.bloque_tierra, x, y);
                 bloque.y = bloque.y - bloque.alto / 2;
@@ -297,8 +304,6 @@ class GameLayer extends Layer {
                 this.espacio.agregarCuerpoEstatico(bloque);
                 break;
         }
-
-
     }
 
     calcularPulsaciones(pulsaciones){
