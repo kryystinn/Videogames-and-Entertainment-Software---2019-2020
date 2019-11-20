@@ -109,7 +109,7 @@ class GameLayer extends Layer {
                 this.iniciar();
             }
         }
-        // colisiones , disparoJugador - Enemigo
+        // colisiones , disparoJugador - EnemigoNave
         for (var i=0; i < this.disparosJugador.length; i++){
             for (var j=0; j < this.enemigos.length; j++){
                 if (this.disparosJugador[i] != null &&
@@ -254,12 +254,20 @@ class GameLayer extends Layer {
                 break;
 
             case "E":
-                var enemigo = new Enemigo(x,y);
+                var enemigo = new EnemigoNave(x,y);
 
                 enemigo.y = enemigo.y - enemigo.alto/2;
                 // modificación para empezar a contar desde el suelo
                 this.enemigos.push(enemigo);
                 this.espacio.agregarCuerpoDinamico(enemigo);
+                break;
+            case "N":
+                var ninja = new EnemigoNinja(x,y);
+
+                ninja.y = ninja.y - ninja.alto/2;
+                // modificación para empezar a contar desde el suelo
+                this.enemigos.push(ninja);
+                this.espacio.agregarCuerpoDinamico(ninja);
                 break;
             case "1":
                 this.jugador = new Jugador(x, y);

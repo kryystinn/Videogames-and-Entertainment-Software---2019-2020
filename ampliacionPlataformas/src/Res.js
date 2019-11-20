@@ -32,6 +32,9 @@ var imagenes = {
     mensaje_como_jugar : "res/mensaje_como_jugar.png",
     mensaje_ganar : "res/mensaje_ganar.png",
     mensaje_perder : "res/mensaje_perder.png",
+    ninja_dcha : "res/ninja_movimiento_derecha.png",
+    ninja_izqda : "res/ninja_movimiento_izquierda.png",
+    ninja_morir : "res/ninja_morir.png",
 
 };
 
