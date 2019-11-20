@@ -19,6 +19,7 @@ class GameLayer extends Layer {
         this.fondo = new Fondo(imagenes.fondo_2,480*0.5,320*0.5);
 
         this.enemigos = [];
+        this.recolectables = [];
 
 
         this.fondoPuntos =
@@ -89,9 +90,17 @@ class GameLayer extends Layer {
             }
         }
 
+        // Recolectables
+        for (var i = 0; i < this.recolectables.length; i++)
+            this.recolectables[i].actualizar();
 
-
-
+        //Colisión jugador-recolectable.
+        for (var i = 0; i < this.recolectables.length; i++)
+            if (this.jugador.colisiona(this.recolectables[i]) && this.recolectables[i] != null) {
+                this.espacio.eliminarCuerpoDinamico(this.recolectables[i])
+                this.recolectables.splice(i, 1);
+                this.puntos.valor += 10;
+            }
 
 
 
@@ -110,17 +119,13 @@ class GameLayer extends Layer {
             }
         }
         // colisiones , disparoJugador - EnemigoNave
-        for (var i=0; i < this.disparosJugador.length; i++){
-            for (var j=0; j < this.enemigos.length; j++){
+        for (var i = 0; i < this.disparosJugador.length; i++) {
+            for (var j = 0; j < this.enemigos.length; j++) {
                 if (this.disparosJugador[i] != null &&
-                    this.enemigos[j] != null &&
-                    this.enemigos[j].estado != estados.muriendo &&
-                    this.disparosJugador[i].colisiona(this.enemigos[j])) {
-
-                    this.espacio
-                        .eliminarCuerpoDinamico(this.disparosJugador[i]);
+                    this.enemigos[j] != null && this.enemigos[j].estado != estados.muriendo && this.disparosJugador[i].colisiona(this.enemigos[j])) {
+                    this.espacio .eliminarCuerpoDinamico(this.disparosJugador[i]);
                     this.disparosJugador.splice(i, 1);
-                    i = i-1;
+                    i = i - 1;
                     this.enemigos[j].impactado();
 
                     this.puntos.valor++;
@@ -168,6 +173,9 @@ class GameLayer extends Layer {
         for (var i=0; i < this.enemigos.length; i++){
             this.enemigos[i].dibujar(this.scrollX);
         }
+
+        for(var i=0; i<this.recolectables.length; i++)
+            this.recolectables[i].dibujar(this.scrollX);
 
 
         // HUD
@@ -247,24 +255,24 @@ class GameLayer extends Layer {
     cargarObjetoMapa(simbolo, x, y){
         switch(simbolo) {
             case "C":
-                this.copa = new Bloque(imagenes.copa, x,y);
-                this.copa.y = this.copa.y - this.copa.alto/2;
+                this.copa = new Bloque(imagenes.copa, x, y);
+                this.copa.y = this.copa.y - this.copa.alto / 2;
                 // modificación para empezar a contar desde el suelo
                 this.espacio.agregarCuerpoDinamico(this.copa);
                 break;
 
             case "E":
-                var enemigo = new EnemigoNave(x,y);
+                var enemigo = new EnemigoNave(x, y);
 
-                enemigo.y = enemigo.y - enemigo.alto/2;
+                enemigo.y = enemigo.y - enemigo.alto / 2;
                 // modificación para empezar a contar desde el suelo
                 this.enemigos.push(enemigo);
                 this.espacio.agregarCuerpoDinamico(enemigo);
                 break;
             case "N":
-                var ninja = new EnemigoNinja(x,y);
+                var ninja = new EnemigoNinja(x, y);
 
-                ninja.y = ninja.y - ninja.alto/2;
+                ninja.y = ninja.y - ninja.alto / 2;
                 // modificación para empezar a contar desde el suelo
                 this.enemigos.push(ninja);
                 this.espacio.agregarCuerpoDinamico(ninja);
@@ -272,17 +280,25 @@ class GameLayer extends Layer {
             case "1":
                 this.jugador = new Jugador(x, y);
                 // modificación para empezar a contar desde el suelo
-                this.jugador.y = this.jugador.y - this.jugador.alto/2;
+                this.jugador.y = this.jugador.y - this.jugador.alto / 2;
                 this.espacio.agregarCuerpoDinamico(this.jugador);
                 break;
+            case "R":
+                var recolectable = new Recolectable(x, y);
+                recolectable.y = recolectable.y - recolectable.alto / 2;
+                this.recolectables.push(recolectable);
+                this.espacio.agregarCuerpoDinamico(recolectable);
+                break;
             case "#":
-                var bloque = new Bloque(imagenes.bloque_tierra, x,y);
-                bloque.y = bloque.y - bloque.alto/2;
+                var bloque = new Bloque(imagenes.bloque_tierra, x, y);
+                bloque.y = bloque.y - bloque.alto / 2;
                 // modificación para empezar a contar desde el suelo
                 this.bloques.push(bloque);
                 this.espacio.agregarCuerpoEstatico(bloque);
                 break;
         }
+
+
     }
 
     calcularPulsaciones(pulsaciones){

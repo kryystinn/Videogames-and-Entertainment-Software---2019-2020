@@ -1,38 +1,4 @@
-window.addEventListener('touchstart', touchstart, false);
-window.addEventListener('touchmove', touchmove, false);
-
-window.addEventListener('touchend', eliminarTouch, false);
-window.addEventListener('touchcancel', eliminarTouch, false);
-window.addEventListener('touchleave', eliminarTouch, false);
-
-function touchstart( event) {
-    var touches = event.changedTouches;
-    for (var i=0; i<touches.length; i++) {
-        agregarPulsacion( touches[i].identifier,
-            tipoPulsacion.inicio, touches[i]);
-    }
-}
-
-function touchmove( event) {
-    var touches = event.changedTouches;
-    for (var i=0; i<touches.length; i++) {
-        agregarPulsacion( touches[i].identifier,
-            tipoPulsacion.mantener, touches[i]);
-    }
-}
-
-function eliminarTouch ( event) {
-    var touches = event.changedTouches;
-    for (var i=0; i<touches.length; i++) {
-        eliminarPulsacion( touches[i].identifier);
-    }
-}
-
-
-
-
-
-            window.addEventListener('mousedown', mousedown);
+window.addEventListener('mousedown', mousedown);
 window.addEventListener('mousemove', mousemove);
 window.addEventListener('mouseup', mouseup);
 
@@ -41,12 +7,12 @@ function mousedown( event) {
 }
 
 function mousemove (event){
+    // Si no hay ninguna, o si han pasado más de 10ms desde la anterior
     if (pulsaciones.length == 0 ||
         event.timeStamp - pulsaciones[0].timeStamp > 10 ) {
 
         agregarPulsacion(1, tipoPulsacion.mantener, event);
     }
-
 }
 
 function mouseup(event) {
@@ -60,8 +26,8 @@ function agregarPulsacion(id, tipoPulsacion, event ){
     y = event.pageY - canvas.offsetTop;
 
     var p = {};
-    p.x = x /escaladoMinimo;
-    p.y = y /escaladoMinimo;
+    p.x = x / this.escaladoMinimo;
+    p.y = y / this.escaladoMinimo;
     p.id = id; // Ratón SOLO hay 1
     p.tipo = tipoPulsacion;
     p.timeStamp = event.timeStamp;

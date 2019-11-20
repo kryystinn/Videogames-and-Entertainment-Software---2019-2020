@@ -35,6 +35,7 @@ var imagenes = {
     ninja_dcha : "res/ninja_movimiento_derecha.png",
     ninja_izqda : "res/ninja_movimiento_izquierda.png",
     ninja_morir : "res/ninja_morir.png",
+    recolectable : "res/recolectable.png",
 
 };
 
