@@ -7,7 +7,7 @@ class EnemigoNinja extends Modelo {
         this.aMoverDcha = new Animacion(imagenes.ninja_dcha, this.ancho, this.alto, 6, 3);
         this.aMoverIzqda = new Animacion(imagenes.ninja_izqda, this.ancho, this.alto, 6, 3);
         this.aMorir = new Animacion(imagenes.ninja_morir,
-            this.ancho,this.alto,6,8, this.finAnimacionMorir.bind(this));
+            this.ancho,this.alto,6,3, this.finAnimacionMorir.bind(this));
 
         // Ref a la animación actual
         this.animacion = this.aMoverIzqda;
@@ -27,10 +27,10 @@ class EnemigoNinja extends Modelo {
 
         switch (this.estado){
             case estados.moviendo:
-                if (this.orientacion == orientaciones.izquierda) {
+                if (this.vx < 0) {
                     this.animacion = this.aMoverIzqda;
                 }
-                if (this.orientacion == orientaciones.derecha) {
+                if (this.vx > 0) {
                     this.animacion = this.aMoverDcha;
                 }
                 break;

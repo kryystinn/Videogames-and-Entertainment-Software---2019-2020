@@ -219,14 +219,17 @@ class GameLayer extends Layer {
         }
 
         // Eje Y
-        for (var i = 0; i < this.saltadores.length; i++) {
-            if (controles.moverY > 0 && !this.jugador.colisiona(this.saltadores[i]))
+        if (controles.moverY > 0){
+            if (this.saltadores.length != 0){
+                for (var i = 0; i < this.saltadores.length; i++) {
+                    if (this.jugador.colisiona(this.saltadores[i]))
+                        this.jugador.saltar(22);
+                }
                 this.jugador.saltar(16);
-            else if (controles.moverY > 0 && this.jugador.colisiona(this.saltadores[i]))
-                this.jugador.saltar(60);
+            }
+            else
+                this.jugador.saltar(16);
         }
-
-
     }
 
 
