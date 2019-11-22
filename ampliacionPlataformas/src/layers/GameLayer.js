@@ -38,6 +38,7 @@ class GameLayer extends Layer {
 
         if ( this.copa.colisiona(this.jugador)){
             nivelActual++;
+            this.saved = null;
             if (nivelActual > nivelMaximo){
                 nivelActual = 0;
             }
@@ -171,6 +172,12 @@ class GameLayer extends Layer {
             }
         }
 
+        //PUNTO DE SALVADO.
+        //Colisión jugador-bandera.
+        if (this.flag != null && this.jugador.colisiona(this.flag)) {
+            this.flag = new Bloque(imagenes.saved_flag, this.flag.x, this.flag.y);
+            this.saved = true;
+        }
 
     }
 
@@ -200,6 +207,10 @@ class GameLayer extends Layer {
         }
 
         this.copa.dibujar(this.scrollX);
+
+        if (this.flag != null)
+            this.flag.dibujar(this.scrollX);
+
         for (var i=0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].dibujar(this.scrollX);
         }
@@ -311,6 +322,13 @@ class GameLayer extends Layer {
                 this.enemigos.push(enemigo);
                 this.espacio.agregarCuerpoDinamico(enemigo);
                 break;
+
+            case "A":
+                this.flag = new Bloque(imagenes.flag, x, y);
+                this.flag.y = this.flag.y - this.flag.alto / 2;
+                this.espacio.agregarCuerpoDinamico(this.flag);
+                break;
+
             case "N":
                 var ninja = new EnemigoNinja(x, y);
 
@@ -320,7 +338,12 @@ class GameLayer extends Layer {
                 this.espacio.agregarCuerpoDinamico(ninja);
                 break;
             case "1":
-                this.jugador = new Jugador(x, y);
+                if (this.saved == null || !this.saved){
+                    this.jugador = new Jugador(x, y);
+                }
+                else{
+                    this.jugador = new Jugador(this.flag.x, this.flag.y);
+                }
                 // modificación para empezar a contar desde el suelo
                 this.jugador.y = this.jugador.y - this.jugador.alto / 2;
                 this.espacio.agregarCuerpoDinamico(this.jugador);

@@ -38,6 +38,8 @@ var imagenes = {
     ninja_morir : "res/ninja_morir.png",
     recolectable : "res/recolectable.png",
     jelly : "res/jelly.png",
+    flag : "res/save_flag.png",
+    saved_flag : "res/saved_flag.png",
 
 };
 

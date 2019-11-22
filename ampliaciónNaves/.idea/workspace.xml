@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f745157f-24dc-48cc-980e-882cb54a1032" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/modelos/DisparoEnemigo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/save_flag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/saved_flag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/res/0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/res/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/Res.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/Res.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/layers/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/layers/GameLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/modelos/EnemigoNinja.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/modelos/EnemigoNinja.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

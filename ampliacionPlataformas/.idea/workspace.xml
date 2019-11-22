@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f745157f-24dc-48cc-980e-882cb54a1032" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/disparo_enemigo_inverso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos/DisparoEnemigo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/save_flag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/saved_flag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Res.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Res.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layers/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/GameLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/EnemigoNinja.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/EnemigoNinja.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ampliaciónNaves/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliaciónNaves/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,7 +82,7 @@
       <workItem from="1574275527124" duration="11283000" />
       <workItem from="1574349379843" duration="253000" />
       <workItem from="1574375483654" duration="834000" />
-      <workItem from="1574390085915" duration="4637000" />
+      <workItem from="1574390085915" duration="6838000" />
     </task>
     <servers />
   </component>
