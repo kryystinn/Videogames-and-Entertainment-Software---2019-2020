@@ -6,6 +6,7 @@ var imagenes = {
     enemigo_movimiento : "res/enemigo_movimiento.png",
     disparo_jugador : "res/disparo_jugador.png",
     disparo_enemigo : "res/disparo_enemigo.png",
+    disparo_enemigoInv : "res/disparo_enemigo_inverso.png",
     icono_puntos : "res/icono_puntos.png",
     icono_vidas : "res/icono_vidas.png",
     icono_recolectable : "res/icono_recolectable.png",

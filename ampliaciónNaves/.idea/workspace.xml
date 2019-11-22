@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f745157f-24dc-48cc-980e-882cb54a1032" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/modelos/DisparoEnemigo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/Res.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/Res.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/layers/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/layers/GameLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/modelos/EnemigoNinja.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/modelos/EnemigoNinja.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +22,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>bomba</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -70,6 +71,7 @@
       <workItem from="1573759684974" duration="9058000" />
       <workItem from="1573790197310" duration="230000" />
       <workItem from="1573792655989" duration="331000" />
+      <workItem from="1574392930232" duration="1037000" />
     </task>
     <servers />
   </component>

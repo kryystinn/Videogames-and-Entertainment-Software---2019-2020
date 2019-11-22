@@ -12,10 +12,17 @@ class EnemigoNinja extends Modelo {
         // Ref a la animación actual
         this.animacion = this.aMoverIzqda;
 
-        this.vxInteligencia = -1;
+        this.vxInteligencia = -2;
         this.vx = this.vxInteligencia;
         this.vy = 0;
 
+    }
+
+    disparar(){
+        if (this.vx > 0)
+            return new DisparoEnemigo(imagenes.disparo_enemigoInv, this.x, this.y, this.vx);
+        else if (this.vx < 0)
+            return new DisparoEnemigo(imagenes.disparo_enemigo, this.x, this.y, this.vx);
     }
 
     finAnimacionMorir(){
@@ -34,6 +41,7 @@ class EnemigoNinja extends Modelo {
                     this.animacion = this.aMoverDcha;
                 }
                 break;
+
             case estados.muriendo:
                 this.animacion = this.aMorir;
                 break;

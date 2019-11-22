@@ -20,6 +20,7 @@ class GameLayer extends Layer {
         this.fondo = new Fondo(imagenes.fondo_2,480*0.5,320*0.5);
 
         this.enemigos = [];
+        this.disparosEnemigo = [];
         this.recolectables = [];
 
 
@@ -60,6 +61,25 @@ class GameLayer extends Layer {
                 this.disparosJugador.splice(i, 1);
             }
         }
+
+
+        // Disparos enemigos
+        if(this.iteracionesDisparoEnemigos == null)
+            this.iteracionesDisparoEnemigos = 150;
+        this.iteracionesDisparoEnemigos++;
+
+        if(this.iteracionesDisparoEnemigos > 200)
+            for(var i=0; i<this.enemigos.length; i++){
+                if (this.enemigos[i] instanceof EnemigoNinja){
+                    var disparo = this.enemigos[i].disparar();
+                    if ( disparo != null )
+                        this.disparosEnemigo.push(disparo);
+                    this.iteracionesDisparoEnemigos = 0;
+                }
+
+            }
+        for (var i = 0; i < this.disparosEnemigo.length; i++)
+            this.disparosEnemigo[i].actualizar();
 
 
         // elementos fuera
@@ -119,7 +139,7 @@ class GameLayer extends Layer {
                 this.iniciar();
             }
         }
-        // colisiones , disparoJugador - EnemigoNave
+        // colisiones , disparoJugador - enemigo
         for (var i = 0; i < this.disparosJugador.length; i++) {
             for (var j = 0; j < this.enemigos.length; j++) {
                 if (this.disparosJugador[i] != null &&
@@ -134,7 +154,22 @@ class GameLayer extends Layer {
             }
         }
 
+        // Colisión disparo enemigo - jugador
+        for (var i = 0; i < this.disparosEnemigo.length; i++) {
+            if (this.jugador.colisiona(this.disparosEnemigo[i])) {
+                this.iniciar();
+                }
+            }
 
+        // Colisión disparo jugador - disparo enemigo
+        for (var i = 0; i < this.disparosJugador.length; i++) {
+            for (var j = 0; j < this.disparosEnemigo.length; j++) {
+                if (this.disparosJugador[i].colisiona(this.disparosEnemigo[j])){
+                    this.disparosJugador.splice(i,1);
+                    this.disparosEnemigo.splice(i, 1);
+                }
+            }
+        }
 
 
     }
@@ -180,6 +215,9 @@ class GameLayer extends Layer {
 
         for(var i=0; i<this.saltadores.length; i++)
             this.saltadores[i].dibujar(this.scrollX);
+
+        for(var i=0; i < this.disparosEnemigo.length; i++)
+            this.disparosEnemigo[i].dibujar();
 
         // HUD
         this.fondoPuntos.dibujar();
