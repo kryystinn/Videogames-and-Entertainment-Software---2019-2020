@@ -97,6 +97,20 @@ class GameLayer extends Layer {
             }
         }
 
+        // Disparos enemigos feura del juego
+
+        for (var i=0; i < this.disparosEnemigo.length; i++){
+            if ( this.disparosEnemigo[i] != null &&
+                !this.disparosEnemigo[i].estaEnPantalla()){
+
+                this.espacio
+                    .eliminarCuerpoDinamico(this.disparosEnemigo[i]);
+
+                this.disparosEnemigo.splice(i, 1);
+                i=i-1;
+            }
+        }
+
 
         console.log("disparosJugador: "+this.disparosJugador.length);
         // Eliminar disparos fuera de pantalla
@@ -127,24 +141,33 @@ class GameLayer extends Layer {
 
 
         this.jugador.actualizar();
+
         for (var i=0; i < this.enemigos.length; i++){
             this.enemigos[i].actualizar();
         }
+
         for (var i=0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].actualizar();
         }
 
         // colisiones
         for (var i=0; i < this.enemigos.length; i++){
-            if ( this.jugador.colisiona(this.enemigos[i])){
-                this.iniciar();
+            if ( this.jugador.colisiona(this.enemigos[i]) && this.enemigos[i] != null && this.enemigos[i].estado != estados.muriendo){
+                if (this.enemigos[i] instanceof EnemigoCangrejo && this.jugador.x > this.enemigos[i].x){
+                    this.enemigos[i].impactado();
+                    this.puntos.valor++;
+                }
+                else
+                    this.iniciar();
             }
         }
+
         // colisiones , disparoJugador - enemigo
         for (var i = 0; i < this.disparosJugador.length; i++) {
             for (var j = 0; j < this.enemigos.length; j++) {
                 if (this.disparosJugador[i] != null &&
-                    this.enemigos[j] != null && this.enemigos[j].estado != estados.muriendo && this.disparosJugador[i].colisiona(this.enemigos[j])) {
+                    this.enemigos[j] != null && this.enemigos[j].estado != estados.muriendo
+                    && !(this.enemigos[j] instanceof EnemigoCangrejo) && this.disparosJugador[i].colisiona(this.enemigos[j])) {
                     this.espacio .eliminarCuerpoDinamico(this.disparosJugador[i]);
                     this.disparosJugador.splice(i, 1);
                     i = i - 1;
@@ -171,6 +194,8 @@ class GameLayer extends Layer {
                 }
             }
         }
+
+
 
         //PUNTO DE SALVADO.
         //Colisión jugador-bandera.
@@ -208,15 +233,19 @@ class GameLayer extends Layer {
 
         this.copa.dibujar(this.scrollX);
 
-        if (this.flag != null)
-            this.flag.dibujar(this.scrollX);
+        //if (this.flag != null)
+        this.flag.dibujar(this.scrollX);
 
         for (var i=0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].dibujar(this.scrollX);
         }
 
+        for (var i=0; i < this.enemigos.length; i++){
+            this.enemigos[i].dibujar(this.scrollX);
+        }
 
         this.jugador.dibujar(this.scrollX);
+
         for (var i=0; i < this.enemigos.length; i++){
             this.enemigos[i].dibujar(this.scrollX);
         }
@@ -316,6 +345,15 @@ class GameLayer extends Layer {
 
             case "E":
                 var enemigo = new EnemigoNave(x, y);
+
+                enemigo.y = enemigo.y - enemigo.alto / 2;
+                // modificación para empezar a contar desde el suelo
+                this.enemigos.push(enemigo);
+                this.espacio.agregarCuerpoDinamico(enemigo);
+                break;
+
+            case "B":
+                var enemigo = new EnemigoCangrejo(x, y);
 
                 enemigo.y = enemigo.y - enemigo.alto / 2;
                 // modificación para empezar a contar desde el suelo

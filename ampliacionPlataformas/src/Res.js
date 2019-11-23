@@ -40,6 +40,8 @@ var imagenes = {
     jelly : "res/jelly.png",
     flag : "res/save_flag.png",
     saved_flag : "res/saved_flag.png",
+    cangrejo_movimiento : "res/crab.png",
+    cangrejo_muriendo : "res/crab_dying.png",
 
 };
 

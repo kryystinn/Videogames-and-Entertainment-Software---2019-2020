@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f745157f-24dc-48cc-980e-882cb54a1032" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/save_flag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/saved_flag.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/res/0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/res/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/res/1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/Res.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/Res.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ampliacionPlataformas/src/layers/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ampliacionPlataformas/src/layers/GameLayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +26,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Desktop/UNI/3. TERCERO/SEV/Zeldio" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ampliacionPlataformas" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
   </component>
   <component name="RecentsManager">
