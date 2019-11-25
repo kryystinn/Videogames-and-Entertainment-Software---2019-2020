@@ -153,7 +153,7 @@ class GameLayer extends Layer {
         // colisiones
         for (var i=0; i < this.enemigos.length; i++){
             if ( this.jugador.colisiona(this.enemigos[i]) && this.enemigos[i] != null && this.enemigos[i].estado != estados.muriendo){
-                if (this.enemigos[i] instanceof EnemigoCangrejo && this.jugador.x > this.enemigos[i].x){
+                if (this.enemigos[i] instanceof EnemigoCangrejo && this.jugador.y <= this.enemigos[i].y){
                     this.enemigos[i].impactado();
                     this.puntos.valor++;
                 }
